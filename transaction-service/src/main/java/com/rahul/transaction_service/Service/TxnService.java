@@ -6,6 +6,7 @@ import com.rahul.transaction_service.Dto.TxnStatusDto;
 import com.rahul.transaction_service.Entity.Transaction;
 import com.rahul.transaction_service.Entity.TransactionStatus;
 import com.rahul.transaction_service.Repo.TxnRepo;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
@@ -21,6 +22,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
 @Service
+@Slf4j
 public class TxnService {
 
     private static Logger LOGGER = LoggerFactory.getLogger(TxnService.class);
@@ -49,7 +51,13 @@ public class TxnService {
                 .build();
         txnRepo.save(transaction);
 
-        LOGGER.info("transaction initialized Id : {}",transaction.getTxnId());
+        log.info(
+                "Transaction initialized txnId={} fromUser={} toUser={} amount={}",
+                transaction.getTxnId(),
+                txnDto.getFromUserId(),
+                txnDto.getToUserId(),
+                txnDto.getAmount()
+        );
 
         // pushing to kafka
 

@@ -7,13 +7,13 @@ import lombok.Setter;
 @Getter
 @Setter
 public class TxnRequestDto {
-    @NotNull
+    @NotNull(message = "From user required")
     private Long fromUserId;
 
-    @NotNull
+    @NotNull(message = "To user required")
     private Long toUserId;
 
-    @NotNull
+    @NotNull(message = "Amount required")
     private Double amount;
 
     private String comment;

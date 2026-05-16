@@ -34,11 +34,11 @@ import java.util.concurrent.Future;
 public class UserService implements UserDetailsService {
 
     private final UserRepo userRepo;
-//    private final  KafkaTemplate kafkaTemplate;
+    private final  KafkaTemplate kafkaTemplate;
     private final PasswordEncoder passwordEncoder;
 
-//    @Value("${user.created.topic}")
-//    private String userCreatedTopic;
+    @Value("${user.created.topic}")
+    private String userCreatedTopic;
 
     @Transactional
     public Long createUser(UserDto userDto) throws ExecutionException, InterruptedException {
@@ -63,10 +63,16 @@ public class UserService implements UserDetailsService {
                 .requestId(MDC.get("requestId"))
                 .build();
 
-//        Future<SendResult<String,Object>> future  = kafkaTemplate
-//                .send(userCreatedTopic, userCreatedPayload.getUserEmail(),userCreatedPayload);
-//
-//        log.info("Pushed userCreatedPayload to kafka: {}",future.get());
+        Future<SendResult<String,Object>> future  = kafkaTemplate
+                .send(userCreatedTopic, userCreatedPayload.getUserEmail(),userCreatedPayload);
+
+        log.info("Pushed userCreatedPayload to kafka: {}",future.get());
+
+        log.info(
+                "User created userId={} email={}",
+                user.getId(),
+                user.getEmail()
+        );
 
         return user.getId();
 

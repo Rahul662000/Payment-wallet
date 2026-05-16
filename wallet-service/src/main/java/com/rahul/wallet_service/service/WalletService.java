@@ -5,6 +5,7 @@ import com.rahul.wallet_service.Dtos.TxnCompletedPayload;
 import com.rahul.wallet_service.Dtos.WalletUpdatePayload;
 import com.rahul.wallet_service.entity.Wallet;
 import com.rahul.wallet_service.repo.WalletRepo;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.concurrent.Future;
 
 @Service
+@Slf4j
 public class WalletService {
     private static Logger LOGGER = LoggerFactory.getLogger(WalletService.class);
 
@@ -84,6 +86,10 @@ public class WalletService {
             LOGGER.info("pushed txnCompleted payload  to kafka {}", completedPayload);
 
         }
-        LOGGER.info("txn done {}", completedPayload);
+        log.info(
+                "Wallet transaction completed txnId={} success={}",
+                payload.getId(),
+                completedPayload.getSuccess()
+        );
     }
 }

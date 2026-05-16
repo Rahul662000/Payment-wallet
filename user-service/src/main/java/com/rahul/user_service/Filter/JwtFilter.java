@@ -61,11 +61,19 @@ public class JwtFilter extends OncePerRequestFilter {
             }
 
             if (!jwtUtils.isAccessToken(token)) {
+                response.setContentType("application/json");
                 response.setStatus(
                         HttpServletResponse.SC_UNAUTHORIZED
                 );
                 response.getWriter()
-                        .write("Invalid Access Token");
+                        .write(
+                                """
+                                {
+                                  "success": false,
+                                  "message": "Invalid token"
+                                }
+                                """
+                        );
                 return;
             }
 
