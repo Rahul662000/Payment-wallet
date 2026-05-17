@@ -46,6 +46,9 @@ public class WalletService {
             fromWallet.setBalance(fromWallet.getBalance() - payload.getAmount());
             toWallet.setBalance(toWallet.getBalance() + payload.getAmount());
 
+            walletRepo.save(fromWallet);
+            walletRepo.save(toWallet);
+
             completedPayload.setSuccess(true);
             completedPayload.setReason("SUFFICIENT FUND");
 
@@ -77,15 +80,14 @@ public class WalletService {
             );
 
             LOGGER.info("pushed walletUpdate to kafka 2 {}", walletpayload2);
-            Future<SendResult<String, Object>> future = kafkaTemplate.send(
-                    txnCompletedTopic,
-                    payload.getFormUserId().toString(),
-                    completedPayload
-
-            );
-            LOGGER.info("pushed txnCompleted payload  to kafka {}", completedPayload);
-
         }
+        Future<SendResult<String, Object>> future = kafkaTemplate.send(
+                txnCompletedTopic,
+                payload.getFormUserId().toString(),
+                completedPayload
+
+        );
+        LOGGER.info("pushed txnCompleted payload  to kafka {}", completedPayload);
         log.info(
                 "Wallet transaction completed txnId={} success={}",
                 payload.getId(),

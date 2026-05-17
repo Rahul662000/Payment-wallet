@@ -1,0 +1,224 @@
+2026-05-17 16:24:19.130
+                [background-preinit]
+                []
+                INFO 
+                o.h.validator.internal.util.Version
+                - HV000001: Hibernate Validator 8.0.3.Final
+2026-05-17 16:24:19.165
+                [restartedMain]
+                []
+                INFO 
+                c.r.u.UserServiceApplication
+                - Starting UserServiceApplication using Java 25.0.1 with PID 9794 (/Users/rahulsingh/Desktop/Payment_Gateway/Payment-wallet/user-service/target/classes started by rahulsingh in /Users/rahulsingh/Desktop/Payment_Gateway/Payment-wallet/user-service)
+2026-05-17 16:24:19.165
+                [restartedMain]
+                []
+                DEBUG
+                c.r.u.UserServiceApplication
+                - Running with Spring Boot v3.5.14, Spring v6.2.18
+2026-05-17 16:24:19.166
+                [restartedMain]
+                []
+                INFO 
+                c.r.u.UserServiceApplication
+                - No active profile set, falling back to 1 default profile: "default"
+2026-05-17 16:24:19.189
+                [restartedMain]
+                []
+                INFO 
+                o.s.c.c.c.ConfigServerConfigDataLoader
+                - Fetching config from server at : http://localhost:8888
+2026-05-17 16:24:19.190
+                [restartedMain]
+                []
+                INFO 
+                o.s.c.c.c.ConfigServerConfigDataLoader
+                - Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/user-service/default": Connection refused. Will be trying the next url if available
+2026-05-17 16:24:19.190
+                [restartedMain]
+                []
+                WARN 
+                o.s.c.c.c.ConfigServerConfigDataLoader
+                - Could not locate PropertySource ([ConfigServerConfigDataResource@1b4a5eac uris = array<String>['http://localhost:8888'], optional = true, profiles = 'default']): I/O error on GET request for "http://localhost:8888/user-service/default": Connection refused
+2026-05-17 16:24:19.190
+                [restartedMain]
+                []
+                INFO 
+                o.s.c.c.c.ConfigServerConfigDataLoader
+                - Fetching config from server at : http://localhost:8888
+2026-05-17 16:24:19.190
+                [restartedMain]
+                []
+                INFO 
+                o.s.c.c.c.ConfigServerConfigDataLoader
+                - Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/user-service/default": Connection refused. Will be trying the next url if available
+2026-05-17 16:24:19.190
+                [restartedMain]
+                []
+                WARN 
+                o.s.c.c.c.ConfigServerConfigDataLoader
+                - Could not locate PropertySource ([ConfigServerConfigDataResource@303c9363 uris = array<String>['http://localhost:8888'], optional = true, profiles = 'default']): I/O error on GET request for "http://localhost:8888/user-service/default": Connection refused
+2026-05-17 16:24:19.190
+                [restartedMain]
+                []
+                INFO 
+                o.s.c.c.c.ConfigServerConfigDataLoader
+                - Fetching config from server at : http://localhost:8888
+2026-05-17 16:24:19.190
+                [restartedMain]
+                []
+                INFO 
+                o.s.c.c.c.ConfigServerConfigDataLoader
+                - Exception on Url - http://localhost:8888:org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8888/user-service/default": Connection refused. Will be trying the next url if available
+2026-05-17 16:24:19.190
+                [restartedMain]
+                []
+                WARN 
+                o.s.c.c.c.ConfigServerConfigDataLoader
+                - Could not locate PropertySource ([ConfigServerConfigDataResource@69c36a6f uris = array<String>['http://localhost:8888'], optional = true, profiles = 'default']): I/O error on GET request for "http://localhost:8888/user-service/default": Connection refused
+2026-05-17 16:24:19.191
+                [restartedMain]
+                []
+                INFO 
+                o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor
+                - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-05-17 16:24:19.191
+                [restartedMain]
+                []
+                INFO 
+                o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor
+                - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-05-17 16:24:19.746
+                [restartedMain]
+                []
+                INFO 
+                o.s.d.r.c.RepositoryConfigurationDelegate
+                - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-05-17 16:24:19.747
+                [restartedMain]
+                []
+                INFO 
+                o.s.d.r.c.RepositoryConfigurationDelegate
+                - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-17 16:24:19.834
+                [restartedMain]
+                []
+                INFO 
+                o.s.d.r.c.RepositoryConfigurationDelegate
+                - Finished Spring Data repository scanning in 81 ms. Found 1 JPA repository interface.
+2026-05-17 16:24:19.854
+                [restartedMain]
+                []
+                INFO 
+                o.s.d.r.c.RepositoryConfigurationDelegate
+                - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-05-17 16:24:19.854
+                [restartedMain]
+                []
+                INFO 
+                o.s.d.r.c.RepositoryConfigurationDelegate
+                - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-05-17 16:24:19.865
+                [restartedMain]
+                []
+                INFO 
+                o.s.d.r.c.RepositoryConfigurationExtensionSupport
+                - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.rahul.user_service.Repo.UserRepo; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-05-17 16:24:19.865
+                [restartedMain]
+                []
+                INFO 
+                o.s.d.r.c.RepositoryConfigurationDelegate
+                - Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+2026-05-17 16:24:20.021
+                [restartedMain]
+                []
+                INFO 
+                o.s.cloud.context.scope.GenericScope
+                - BeanFactory id=288ba115-69fa-39df-bba1-290fd421f828
+2026-05-17 16:24:20.286
+                [restartedMain]
+                []
+                INFO 
+                o.s.b.w.e.tomcat.TomcatWebServer
+                - Tomcat initialized with port 8080 (http)
+2026-05-17 16:24:20.292
+                [restartedMain]
+                []
+                INFO 
+                o.a.coyote.http11.Http11NioProtocol
+                - Initializing ProtocolHandler ["http-nio-8080"]
+2026-05-17 16:24:20.294
+                [restartedMain]
+                []
+                INFO 
+                o.a.catalina.core.StandardService
+                - Starting service [Tomcat]
+2026-05-17 16:24:20.294
+                [restartedMain]
+                []
+                INFO 
+                o.a.catalina.core.StandardEngine
+                - Starting Servlet engine: [Apache Tomcat/10.1.54]
+2026-05-17 16:24:20.319
+                [restartedMain]
+                []
+                INFO 
+                o.a.c.c.C.[Tomcat].[localhost].[/]
+                - Initializing Spring embedded WebApplicationContext
+2026-05-17 16:24:20.319
+                [restartedMain]
+                []
+                INFO 
+                o.s.b.w.s.c.ServletWebServerApplicationContext
+                - Root WebApplicationContext: initialization completed in 1128 ms
+2026-05-17 16:24:20.344
+                [restartedMain]
+                []
+                ERROR
+                o.s.b.w.e.tomcat.TomcatStarter
+                - Error starting Tomcat context. Exception: org.springframework.beans.factory.UnsatisfiedDependencyException. Message: Error creating bean with name 'jwtFilter' defined in file [/Users/rahulsingh/Desktop/Payment_Gateway/Payment-wallet/user-service/target/classes/com/rahul/user_service/Filter/JwtFilter.class]: Unsatisfied dependency expressed through constructor parameter 2: Error creating bean with name 'userService' defined in file [/Users/rahulsingh/Desktop/Payment_Gateway/Payment-wallet/user-service/target/classes/com/rahul/user_service/Service/UserService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'userRepo' defined in com.rahul.user_service.Repo.UserRepo defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Cannot resolve reference to bean 'jpaSharedEM_entityManagerFactory' while setting bean property 'entityManager'
+2026-05-17 16:24:20.356
+                [restartedMain]
+                []
+                INFO 
+                o.a.catalina.core.StandardService
+                - Stopping service [Tomcat]
+2026-05-17 16:24:20.363
+                [restartedMain]
+                []
+                WARN 
+                o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext
+                - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server
+2026-05-17 16:24:20.370
+                [restartedMain]
+                []
+                INFO 
+                o.s.b.a.l.ConditionEvaluationReportLogger
+                - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-05-17 16:24:20.379
+                [restartedMain]
+                []
+                ERROR
+                o.s.b.d.LoggingFailureAnalysisReporter
+                - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine a suitable driver class
+
+
+Action:
+
+Consider the following:
+	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+

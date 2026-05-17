@@ -24,8 +24,8 @@ public class TxnKafkaConsummerConfig {
     private TxnRepo txnRepo;
 
     @KafkaListener(topics = "${txn.completed.topic}", groupId = "txn")
-    public void consumeTxnKafkaPayload(ConsumerRecord payload) throws JsonProcessingException {
-        TxnCompletedPayload txnCompletedPayload = OBJECT_MAPPER.readValue(payload.value().toString(), TxnCompletedPayload.class);
+    public void consumeTxnKafkaPayload(ConsumerRecord<String, String> payload) throws JsonProcessingException {
+        TxnCompletedPayload txnCompletedPayload = OBJECT_MAPPER.readValue(payload.value() , TxnCompletedPayload.class);
         MDC.put("requestId", txnCompletedPayload.getRequestId());
         LOGGER.info("Read from kafka : {}", txnCompletedPayload);
 

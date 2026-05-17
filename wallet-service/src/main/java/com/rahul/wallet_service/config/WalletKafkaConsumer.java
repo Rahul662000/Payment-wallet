@@ -28,8 +28,8 @@ public class WalletKafkaConsumer {
     private WalletService walletService;
 
     @KafkaListener(topics = "${user.created.topic}", groupId = "wallet")
-    public void consumeUserCreateTopic(ConsumerRecord payload) throws JsonProcessingException {
-        UserCreatedPayload userCreatedPayload = OBJECT_MAPPER.readValue(payload.value().toString(), UserCreatedPayload.class);
+    public void consumeUserCreateTopic(ConsumerRecord<String, String> payload) throws JsonProcessingException {
+        UserCreatedPayload userCreatedPayload = OBJECT_MAPPER.readValue(payload.value(), UserCreatedPayload.class);
         MDC.put("requestId", userCreatedPayload.getRequestId());
         LOGGER.info("Read usercreated payload from kafka : {}", userCreatedPayload);
         Wallet wallet = new Wallet();
@@ -41,8 +41,8 @@ public class WalletKafkaConsumer {
     }
 
     @KafkaListener(topics = "${txn.init.topic}" , groupId = "wallet")
-    public void consumeTxnInitTopic (ConsumerRecord payload) throws JsonProcessingException {
-        InitTxnPayload initTxnPayload = (InitTxnPayload) OBJECT_MAPPER.readValue(payload.value().toString(), InitTxnPayload.class);
+    public void consumeTxnInitTopic (ConsumerRecord<String, String> payload) throws JsonProcessingException {
+        InitTxnPayload initTxnPayload = (InitTxnPayload) OBJECT_MAPPER.readValue(payload.value(), InitTxnPayload.class);
         MDC.put("requestId",initTxnPayload.getRequestId());
         LOGGER.info("reading from kafka  {}",initTxnPayload);
         walletService.walletTxn(initTxnPayload);

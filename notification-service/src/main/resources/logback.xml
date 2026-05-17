@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+
+    <!-- LOG PATH -->
+    <property name="LOG_PATH" value="./logs"/>
+
+    <!-- SERVICE NAME -->
+    <property name="SERVICE_NAME" value="user-service"/>
+
+    <!-- CONSOLE APPENDER -->
+    <appender name="MyConsoleAppender"
+              class="ch.qos.logback.core.ConsoleAppender">
+
+        <encoder>
+            <pattern>
+                %d{yyyy-MM-dd HH:mm:ss.SSS}
+                [%thread]
+                [%X{requestId}]
+                %-5level
+                %logger{36}
+                - %msg%n
+            </pattern>
+        </encoder>
+
+    </appender>
+
+    <!-- FILE APPENDER -->
+    <appender name="MyFileAppender"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+        <file>
+            ${LOG_PATH}/${SERVICE_NAME}.log
+        </file>
+
+        <rollingPolicy
+                class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+
+            <!-- DAILY + INDEX -->
+            <fileNamePattern>
+                ${LOG_PATH}/${SERVICE_NAME}-%d{yyyy-MM-dd}.%i.log
+            </fileNamePattern>
+
+            <!-- MAX FILE SIZE -->
+            <maxFileSize>10MB</maxFileSize>
+
+            <!-- KEEP 10 DAYS -->
+            <maxHistory>10</maxHistory>
+
+            <!-- MAX TOTAL LOG STORAGE -->
+            <totalSizeCap>100MB</totalSizeCap>
+
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>
+                %d{yyyy-MM-dd HH:mm:ss.SSS}
+                [%thread]
+                [%X{requestId}]
+                %-5level
+                %logger{36}
+                - %msg%n
+            </pattern>
+        </encoder>
+
+    </appender>
+
+    <!-- ROOT LOGGER -->
+    <root level="INFO">
+
+        <appender-ref ref="MyConsoleAppender"/>
+        <appender-ref ref="MyFileAppender"/>
+
+    </root>
+
+    <!-- PROJECT PACKAGE -->
+    <logger name="com.rahul"
+            level="DEBUG"/>
+
+</configuration>

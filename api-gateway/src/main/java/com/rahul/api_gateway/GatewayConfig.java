@@ -22,7 +22,6 @@ public class GatewayConfig {
                 // Transaction Service
                 .route("transaction-service", r -> r
                         .path("/txn-service/**")
-                        .filters(f -> f.stripPrefix(1))
                         .uri("http://localhost:8082"))
 
                 // Wallet Service

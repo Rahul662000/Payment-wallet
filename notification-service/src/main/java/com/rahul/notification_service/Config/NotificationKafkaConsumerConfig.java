@@ -30,9 +30,9 @@ public class NotificationKafkaConsumerConfig {
     private String mailSender ;
 
     @KafkaListener(topics = "${user.created.topic}", groupId = "email")
-    public void consumeUserCreateTopic(ConsumerRecord payload) throws JsonProcessingException {
+    public void consumeUserCreateTopic(ConsumerRecord<String, String> payload) throws JsonProcessingException {
 
-        UserCreatedPayload userCreatedPayload = OBJECT_MAPPER.readValue(payload.value().toString(), UserCreatedPayload.class);
+        UserCreatedPayload userCreatedPayload = OBJECT_MAPPER.readValue(payload.value(), UserCreatedPayload.class);
 
         MDC.put("requestId", userCreatedPayload.getRequestId());
         LOGGER.info("Read from kafka 1 : {}", userCreatedPayload);
@@ -56,8 +56,8 @@ public class NotificationKafkaConsumerConfig {
     }
 
     @KafkaListener(topics = "${wallet.updated.topic}",groupId = "walletUpdate")
-    public void consumeWalletUpdateTopic(ConsumerRecord payload) throws JsonProcessingException {
-        WalletUpdatePayload walletUpdatePayload = OBJECT_MAPPER.readValue(payload.value().toString(), WalletUpdatePayload.class);
+    public void consumeWalletUpdateTopic(ConsumerRecord<String, String> payload) throws JsonProcessingException {
+        WalletUpdatePayload walletUpdatePayload = OBJECT_MAPPER.readValue(payload.value(), WalletUpdatePayload.class);
 
         MDC.put("requestId", walletUpdatePayload.getRequestId());
         LOGGER.info("Read from kafka : {}", walletUpdatePayload);
